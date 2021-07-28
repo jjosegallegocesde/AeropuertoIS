@@ -5,7 +5,10 @@
  */
 package aeropuertois;
 
+import controladores.ControladorPropietario;
 import java.util.Scanner;
+import modelos.Propietario;
+import vistas.VistaPropietario;
 
 /**
  *
@@ -19,22 +22,14 @@ public class AeropuertoIS {
     public static void main(String[] args) {
         
         
-        //USAR LA CLASE BASEDATOS (CREAR UN OBJETO)
-        Scanner entrada = new Scanner(System.in);
-        BaseDatos bd = new BaseDatos();
+        //crear objeto de tipo vista
+        VistaPropietario vistaPropietario = new VistaPropietario();
+        Propietario propietario = vistaPropietario.activarVista();
         
-        System.out.println("Bienvenido al hanagr 160");
+        //llamar al controlador
+        ControladorPropietario controladorPropietario = new ControladorPropietario();
+        controladorPropietario.registrarPropietario(propietario);
         
-        System.out.println("Digite la cedula del propietario: ");
-        String cedula=entrada.next();
-        
-        System.out.println("Digite los nombres del propietario");
-        String nombres=entrada.next();
-        
-        System.out.println("Digite el metodo de pago (1 o 2)");
-        int metodo=entrada.nextInt();
-        
-        bd.insertarPropietario(cedula, nombres, metodo);
         
        
         

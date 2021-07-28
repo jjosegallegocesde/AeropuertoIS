@@ -3,45 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aeropuertois;
+package modelos;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 /**
  *
  * @author Juan
  */
-public class BaseDatos {
+public class ConsultasPropietario extends BaseDatos {
     
-    //ATRIBUTOS
-    private static final String URL="jdbc:mysql://localhost/aeropuertois";
-    private static final String USUARIO="root";
-    private static final String PASSWORD="";
     
     private PreparedStatement sentenciaSQL;
     
-    //METODOS
-    public Connection conectarBD(){
-        
-        Connection conexion=null;
-        
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conexion=DriverManager.getConnection(URL,USUARIO,PASSWORD);
-            System.out.println("Exito conectandose a la BD");
-            return conexion;
-            
-            
-        }catch(Exception error){
-            System.out.println("Tenemos problemas "+error);
-            return null;
-        }
-            
-    }
     
-    public void insertarPropietario(String cedula, String nombres, int metodoPago){
+    public void insertarPropietario(Propietario propietario){
         
         //1. Establecer nocexion con BD
         Connection conexion=conectarBD();
@@ -55,9 +32,9 @@ public class BaseDatos {
             sentenciaSQL=conexion.prepareStatement(consulta);
             
             //4. Diferenciar la consulta (Personalizar)
-             sentenciaSQL.setString(1,cedula);
-             sentenciaSQL.setString(2, nombres);
-             sentenciaSQL.setInt(3, metodoPago);
+             sentenciaSQL.setString(1,propietario.getCedula());
+             sentenciaSQL.setString(2, propietario.getNombres());
+             sentenciaSQL.setInt(3, propietario.getMetodoPago());
              
              //5. Ejecutar la consulta
              int resultado=sentenciaSQL.executeUpdate();
@@ -80,12 +57,9 @@ public class BaseDatos {
                 System.out.println("error: "+error);
             }
             
-        }
-        
-        
+        } 
         
     }
     
     
-   
 }
