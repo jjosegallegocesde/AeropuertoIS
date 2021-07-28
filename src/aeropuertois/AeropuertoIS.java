@@ -5,9 +5,12 @@
  */
 package aeropuertois;
 
+import controladores.ControladorAvion;
 import controladores.ControladorPropietario;
 import java.util.Scanner;
+import modelos.Avion;
 import modelos.Propietario;
+import vistas.VistaAvion;
 import vistas.VistaPropietario;
 
 /**
@@ -22,13 +25,22 @@ public class AeropuertoIS {
     public static void main(String[] args) {
         
         
-        //crear objeto de tipo vista
+        //crear objeto de tipo vista (Propietario)
         VistaPropietario vistaPropietario = new VistaPropietario();
         Propietario propietario = vistaPropietario.activarVista();
         
         //llamar al controlador
         ControladorPropietario controladorPropietario = new ControladorPropietario();
         controladorPropietario.registrarPropietario(propietario);
+        
+        //crear objeto de tipo vista (Avion)
+        VistaAvion vistaAvion = new VistaAvion();
+        Avion avion = vistaAvion.activarVista();
+        
+        //llamar controlador
+        ControladorAvion controladorAvion = new ControladorAvion();
+        controladorAvion.registrarAvion(avion);
+        
         
         
        
