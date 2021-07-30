@@ -16,7 +16,7 @@ public class ConsultasPropietario extends BaseDatos {
     
     
     private PreparedStatement sentenciaSQL;
-    
+  
     
     public void insertarPropietario(Propietario propietario){
         
