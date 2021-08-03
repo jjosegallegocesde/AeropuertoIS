@@ -31,6 +31,8 @@ public class ConsultasAvion extends BaseDatos {
             sentenciaSQL.setString(2, avion.getModelo());
             sentenciaSQL.setString(3, avion.getCedulaPropietario());
             sentenciaSQL.setInt(4, avion.getTipoContrato());
+            
+            int resultado=sentenciaSQL.executeUpdate();
         
         }catch(Exception error){
             
