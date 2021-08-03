@@ -74,5 +74,50 @@ public class ConsultasHangar extends BaseDatos {
     }
     
     
+    public void actualizarHangar(Hangar hangar){
+        
+        
+        
+ 
+        //1. Establecer nocexion con BD
+        Connection conexion=conectarBD();
+        
+        
+         //2. Definir el string con la consulta SQL
+        String consulta="UPDATE hangares SET cupos_disponibles=?, cupos_reservados=? WHERE codigo_hangar=160";
+        
+        
+        try{
+            
+            sentenciaSQL=conexion.prepareStatement(consulta);
+            
+            sentenciaSQL.setInt(1,hangar.getCuposDisponibles());
+            sentenciaSQL.setInt(2,hangar.getCuposReservados());
+            
+            int resultado=sentenciaSQL.executeUpdate();
+            
+            
+            
+            
+            
+            
+        }catch(Exception error){
+            
+            System.out.println("Error actualizando el registro: "+error);
+            
+        }finally{
+            
+             try{
+                conexion.close(); 
+            }catch(Exception error){
+                System.out.println("error: "+error);
+            }
+            
+        }
+        
+        
+    }
+    
+    
     
 }

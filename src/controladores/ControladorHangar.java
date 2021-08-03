@@ -25,6 +25,15 @@ public class ControladorHangar {
         vista.activarVista(hangar);
     }
     
+    public void actualizarHangar(Hangar hangar){
+        
+        int cuposDisponiblesAntesMatricula=hangar.getCuposDisponibles();//16
+        hangar.setCuposDisponibles(cuposDisponiblesAntesMatricula-1);
+        
+        
+        
+        
+    }
     
     
     
