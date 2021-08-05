@@ -11,10 +11,10 @@ package modelos;
  */
 public class Avion {
     
-    String matricula;
-    String modelo;
-    String cedulaPropietario;
-    int tipoContrato;
+    private String matricula;
+    private String modelo;
+    private String cedulaPropietario;
+    private int tipoCPontrato;
 
     public String getMatricula() {
         return matricula;
@@ -40,13 +40,15 @@ public class Avion {
         this.cedulaPropietario = cedulaPropietario;
     }
 
-    public int getTipoContrato() {
-        return tipoContrato;
+    public int getTipoCPontrato() {
+        return tipoCPontrato;
     }
 
-    public void setTipoContrato(int tipoContrato) {
-        this.tipoContrato = tipoContrato;
+    public void setTipoCPontrato(int tipoCPontrato) {
+        this.tipoCPontrato = tipoCPontrato;
     }
+
+   
 
     
     

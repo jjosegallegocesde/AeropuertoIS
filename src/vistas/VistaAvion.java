@@ -32,7 +32,7 @@ public class VistaAvion {
         avion.setCedulaPropietario(entrada.next());
         
         System.out.println("Digita el tipo de contrato: (1=anual/2=mes)");
-        avion.setTipoContrato(entrada.nextInt());
+        avion.setTipoCPontrato(entrada.nextInt());
         
         return avion;
         

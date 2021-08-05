@@ -20,15 +20,25 @@ public class ControladorHangar {
     private VistaHangar vista= new VistaHangar();
     
     //METODOS
-    public void consultarInformacionHangar(){
+    public Hangar consultarInformacionHangar(){
         Hangar hangar=modelo.BuscarHangar();
-        vista.activarVista(hangar);
+        return hangar;
+        //vista.activarVista(hangar);
     }
     
     public void actualizarHangar(Hangar hangar){
         
-        int cuposDisponiblesAntesMatricula=hangar.getCuposDisponibles();//16
-        hangar.setCuposDisponibles(cuposDisponiblesAntesMatricula-1);
+        int cuposDisponiblesAntesMatricula=hangar.getCuposDisponibles();
+        int cuposDisponiblesDespuesMatricula=cuposDisponiblesAntesMatricula-1;
+        
+        int cuposReservadosAntesMatricula=hangar.getCuposReservados();
+        int cuposReservadosDespuesMatricula=cuposReservadosAntesMatricula+1;
+        
+        
+        hangar.setCuposDisponibles(cuposDisponiblesDespuesMatricula);
+        hangar.setCuposReservados(cuposReservadosDespuesMatricula);
+        
+        modelo.actualizarHangar(hangar);
         
         
         
